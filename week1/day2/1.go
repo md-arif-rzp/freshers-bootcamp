@@ -26,7 +26,7 @@ func (frequency *Frequency) FrequencyCalculator(id int, jobs <-chan string, wg *
 
 
 func main(){
-	words := []string{"quick", "dog", "dog", "dog", "dog"}
+	words := []string{"quick", "fox", "down", "lazy", "dog"}
 	numWords := len(words)
 	jobs := make(chan string)
 	var finalfrequency = Frequency{make(map[string]int), sync.Mutex{}}
