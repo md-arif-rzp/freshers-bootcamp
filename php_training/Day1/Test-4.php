@@ -6,27 +6,22 @@ $obj=json_decode($json);
 
 //array of Names
 $name=array();
-foreach($obj->{'players'} as $value){
-        array_push($name,$value->{'name'});
-}
-echo "Name: " . json_encode($name);
-
-
-
 //array of Age
 $age=array();
-foreach($obj->{'players'} as $value){
-        array_push($age,$value->{'age'});
-}
-echo "Age: " . json_encode($age);
-
-
-
 //array of Cities
 $city=array();
+
+
 foreach($obj->{'players'} as $value){
+        array_push($name,$value->{'name'});
+        array_push($age,$value->{'age'});
         array_push($city,$value->{'address'}->{'city'});
+
 }
+
+
+echo "Name: " . json_encode($name);
+echo "Age: " . json_encode($age);
 echo "City: " . json_encode($city);
 
 
