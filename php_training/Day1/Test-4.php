@@ -19,7 +19,7 @@ foreach($obj->{'players'} as $value){
 }
 echo "Age: " . json_encode($age);
 
-//array of Names
+//array of Cities
 $city=array();
 foreach($obj->{'players'} as $value){
      //print_r ($value->{'address'}->{'city'});
