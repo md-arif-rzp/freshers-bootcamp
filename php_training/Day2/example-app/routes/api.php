@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get("allUsers",[UserController::class,'getAllUsers']);
+Route::post("createUser",[UserController::class,'addUser']);
