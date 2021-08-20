@@ -59,13 +59,13 @@ class MobileuserController extends Controller
             {
                 return response()->json([
                     'message' => "User with username - $UserName does not exists"
-                ]);
+                ],404);
             }
             if ($count > 1)
             {
                 return response()->json([
                     'message' => "More than one users with username - $UserName exist"
-                ]);
+                ],400);
             }
             DB::table('mobileusers')
                 ->where('UserName' , $UserName)
@@ -86,7 +86,7 @@ class MobileuserController extends Controller
         {
             return response()->json([
                 'message' => "User with useremail - $UserEmail does not exists"
-            ]);
+            ],404);
         }
         if ($count > 1)
         {
@@ -113,7 +113,7 @@ class MobileuserController extends Controller
         {
             return response()->json([
                 'message' => "User with user number - $MobileNo does not exists"
-            ]);
+            ],404);
         }
         DB::table('mobileusers')
             ->where('MobileNo' , $MobileNo)
