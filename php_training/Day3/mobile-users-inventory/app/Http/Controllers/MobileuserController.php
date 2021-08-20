@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\mobileuser;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 class MobileuserController extends Controller
 {
         function getAllUsers(){
@@ -13,6 +14,17 @@ class MobileuserController extends Controller
 
         //function to add a user
         function addUser(Request $request){
+
+            $validator = Validator::make($request->all(), [
+                'UserName' => 'required|min:1|max:50',
+                'UserEmail' => 'required|regex:/^.+@.+$/i',
+                'MobileNo' => 'required|size:10'
+            ]);
+            if ($validator->fails()) {
+                return response()->json([
+                    'Message' => "Wrong input format"
+                ]);
+            }
 
             $count = DB::table('mobileusers')
                 ->where('MobileNo' , $request->MobileNo)
