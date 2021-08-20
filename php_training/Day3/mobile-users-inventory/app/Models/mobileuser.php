@@ -11,7 +11,7 @@ class mobileuser extends Model
 
     protected $fillable = [
         'id',
-        'UserNname',
+        'UserName',
         'UserEmail',
         'MobileNo'
     ];
