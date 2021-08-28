@@ -34,7 +34,8 @@ func GetProdByID(c *gin.Context) {
 	var user Models.Store
 	err := Models.GetProdByID(&user, id)
 	if err != nil {
-		c.AbortWithStatus(http.StatusNotFound)
+
+		c.JSON(http.StatusNotFound,gin.H{"message":"No such product with this id exists"})
 	} else {
 		c.JSON(http.StatusOK, user)
 	}
